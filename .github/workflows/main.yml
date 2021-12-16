@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Call JS File:
+  Call-JS-File:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
