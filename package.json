@@ -1,0 +1,11 @@
+{
+    "name": "upload-s3",
+    "version": "1.0.0",
+    "description": "A packaged for dependecies",
+    "main": "upload-s3.js",
+    "dependencies": {
+        "aws-sdk": "^2.1046.0",
+        "fs": "0.0.1-security",
+        "javascript-obfuscator": "^3.0.0"
+    }
+}
