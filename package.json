@@ -6,6 +6,7 @@
     "dependencies": {
         "aws-sdk": "^2.1046.0",
         "fs": "0.0.1-security",
-        "javascript-obfuscator": "^3.0.0"
+        "javascript-obfuscator": "^3.0.0",
+        "yargs": "^17.3.0"
     }
 }

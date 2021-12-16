@@ -8,7 +8,7 @@ phases:
   build:
     commands:
       - echo Entered the build phase...
-      - node upload-s3
+      - node upload-s3.js --accessKey=$accessKey --secretKey=$secretKey
   post_build:
     commands:
       - echo Entered the post_build phase...
