@@ -1,0 +1,18 @@
+name: call js file
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Call JS File:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: ls
+      - run: npm install
+      - run: node upload-s3.js --accessKey=${{ secrets.accessKey }} --secretKey=${{ secrets.secretKey }}
+      - run: echo Entered the post_build phase..
+      - run: echo Build completed on `date`
