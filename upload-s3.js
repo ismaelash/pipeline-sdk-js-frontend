@@ -38,4 +38,4 @@ function uploadFileToS3(content, bucketName, directoryWithFilenameAndExtesion) {
   });
 }
 
-uploadFileToS3("Ismael Ash", "pipeline-sdk", "content.js");
+uploadFileToS3("console.log('Ismael Ash')", "pipeline-sdk", "content.js");
