@@ -4,5 +4,5 @@ const argv = yargs(hideBin(process.argv)).argv
 
 console.log('works fine')
 
-console.log(argv.accessKey)
+console.log(`_${argv.accessKey}_`)
 console.log(argv.secretKey)
