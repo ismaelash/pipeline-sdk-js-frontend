@@ -3,32 +3,31 @@ const { hideBin } = require("yargs/helpers");
 const argv = yargs(hideBin(process.argv)).argv;
 
 const fs = require("fs");
-const AWS = require("aws-sdk");
 const JavaScriptObfuscator = require("javascript-obfuscator");
+
+const AWS = require("aws-sdk");
 AWS.config.update({
-  region: "us-east-1",
-  accessKeyId: argv.accessKey, // via terminal
-  secretAccessKey: argv.secretKey, // via terminal
+  region: argv.region ?? "us-east-1",
+  accessKeyId: argv.accessKey,
+  secretAccessKey: argv.secretKey,
 });
 const S3 = new AWS.S3();
 
 function obfuscatorIO(code) {
   var obfuscationResult = JavaScriptObfuscator.obfuscate(code, {
-    optionsPreset: "medium-obfuscation",
-    log: true,
+    optionsPreset: "low-obfuscation",
   });
   return obfuscationResult.getObfuscatedCode();
 }
 
-function uploadFileToS3(code, bucketName, fileNameWithExtesion) {
+function uploadFileToS3(content, bucketName, directoryWithFilenameAndExtesion) {
   const params = {
     ACL: "public-read",
-    Body: obfuscatorIO(code),
+    Body: obfuscatorIO(content),
     ContentType: "text/javascript",
     Bucket: bucketName,
-    Key: `${fileNameWithExtesion}`,
+    Key: `${directoryWithFilenameAndExtesion}`,
   };
-  // console.log("uploadFileToS3.params", params);
 
   S3.putObject(params, (err, data) => {
     if (err) {
@@ -39,4 +38,4 @@ function uploadFileToS3(code, bucketName, fileNameWithExtesion) {
   });
 }
 
-uploadFileToS3('Ismael', 'pipeline-sdk', 'github-actions.js')
+uploadFileToS3("Ismael Ash", "pipeline-sdk", "content.js");

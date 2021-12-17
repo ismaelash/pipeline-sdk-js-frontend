@@ -13,6 +13,6 @@ jobs:
         uses: actions/checkout@v2
       - run: ls
       - run: npm install
-      - run: node upload-s3.js --accessKey=${{ secrets.accessKey }} --secretKey=${{ secrets.secretKey }}
+      - run: node upload-s3.js --accessKey=${{ secrets.accessKey }} --secretKey=${{ secrets.secretKey }} --secretKey=${{ secrets.region }}
       - run: echo Entered the post_build phase..
       - run: echo Build completed on `date`
