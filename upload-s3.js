@@ -2,12 +2,12 @@ const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
 const argv = yargs(hideBin(process.argv)).argv;
 
-const fs = require("fs");
+// const fs = require("fs");
 const JavaScriptObfuscator = require("javascript-obfuscator");
 
 const AWS = require("aws-sdk");
 AWS.config.update({
-  region: argv.region ?? "us-east-1",
+  region: argv.region,
   accessKeyId: argv.accessKey,
   secretAccessKey: argv.secretKey,
 });
